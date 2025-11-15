@@ -5,7 +5,7 @@ const connectDB=async()=>{
         await mongoose.connect(process.env.MONGO_URI); //Fatch the MONGO URI from .env file
         console.info('database connect'); //sucessful message
     }catch(err){
-        console.err(err.message)
+        console.err(err.message);
     }
 }
 
