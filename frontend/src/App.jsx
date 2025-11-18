@@ -1,7 +1,8 @@
+import AppRouter from "./router/AppRouter";
 const App=()=>{
   return(
     <>
-    <p>This is home page</p>
+    <AppRouter/>
     </>
   )
 }
