@@ -1,15 +1,16 @@
 import {Routes, Route } from "react-router-dom";
-
 import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
 
 const AppRouter=()=>{
     return(
+        <>
         <Routes>
-            <Route element={<MainLayout/>}>
-                <Route path="/" element={<HomePage/>}/>
+            <Route path="/" element={<MainLayout/>}>
+                <Route index element={<HomePage/>}/>
             </Route>
         </Routes>
+        </>
     )
 }
 
