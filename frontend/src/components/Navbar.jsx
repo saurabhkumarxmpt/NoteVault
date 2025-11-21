@@ -1,49 +1,58 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full py-4">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4">
-
+    <nav className="w-full shadow-sm bg-white">
+      <div className="flex items-center justify-between px-6 py-3">
+        
         {/* Logo */}
-        <div className="text-2xl font-bold">MyLogo</div>
+        <div className="flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-10 h-10 object-contain"
+          />
+          <h1 className="font-semibold text-lg">NoteVault</h1>
+        </div>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex gap-8 text-lg font-medium">
-          <li className="hover:text-blue-500 cursor-pointer">Home</li>
-          <li className="hover:text-blue-500 cursor-pointer">About</li>
-          <li className="hover:text-blue-500 cursor-pointer">Services</li>
-          <li className="hover:text-blue-500 cursor-pointer">Contact</li>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10 text-gray-700 font-medium">
+          <li className="cursor-pointer hover:text-black">Features</li>
+          <li className="cursor-pointer hover:text-black">Testimonials</li>
+          <li className="cursor-pointer hover:text-black">About</li>
+          <li className="cursor-pointer hover:text-black">Feedback</li>
         </ul>
 
-        {/* Desktop Button */}
-        <button className="hidden md:block px-5 py-2 border border-blue-500 text-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-200">
-          Get Started
+        {/* Desktop Sign in Button */}
+        <button className="hidden md:block bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:opacity-90">
+          Sign in
         </button>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} /> : <Menu size={28} />}
+        {/* Mobile Menu Button */}
+        <div className="md:hidden text-3xl" onClick={() => setOpen(!open)}>
+          {open ? "✕" : "☰"}
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {open && (
-        <div className="md:hidden px-4 py-3 space-y-3 bg-white shadow-md rounded-lg mt-3">
-          <p className="hover:text-blue-500 cursor-pointer">Home</p>
-          <p className="hover:text-blue-500 cursor-pointer">About</p>
-          <p className="hover:text-blue-500 cursor-pointer">Services</p>
-          <p className="hover:text-blue-500 cursor-pointer">Contact</p>
+        <div className="md:hidden bg-white px-6 pb-4">
+          <ul className="flex flex-col gap-4 text-gray-700 font-medium">
+            <li className="cursor-pointer hover:text-black">Home</li>
+            <li className="cursor-pointer hover:text-black">Services</li>
+            <li className="cursor-pointer hover:text-black">Contact us</li>
+            <li className="cursor-pointer hover:text-black">Our projects</li>
+          </ul>
 
-          <button className="w-full px-5 py-2 border border-blue-500 text-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-200">
-            Get Started
+          {/* Mobile Sign in Button */}
+          <button className="mt-4 w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:opacity-90">
+            Sign in
           </button>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 
